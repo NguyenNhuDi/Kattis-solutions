@@ -3,7 +3,7 @@ import glob
 
 
 if __name__ == '__main__':
-    f = open('README.md', 'w')
+    f = open('README.md', 'w', newline='\n')
 
     cDir = os.getcwd()
 
