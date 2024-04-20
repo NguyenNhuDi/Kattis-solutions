@@ -26,8 +26,6 @@ int main(){
         string inpoo; cin >> inpoo;
         int l = inpoo.size();
         int k = (int) ceil(sqrt((double)l));
-        int m = k * k;
-
         vector<vector<char>> matrix(k, vector<char>(k, '*'));
 
         FOR(i,0,k){
