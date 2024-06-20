@@ -20,12 +20,6 @@ using namespace std;
 
 inline bool dfs(vvi & grid){
 
-    // fe(row, grid){
-    //     fe(elem, row)
-    //         cout << elem << "";
-    //     cout << endl;
-    // }
-
     stack<pii> s;
     
     FOR(i,0,201)
@@ -87,17 +81,22 @@ int main(){
         int x, y; double r; cin >> x >> y >> r;
 
         for(double d = 0; d <= 360; d +=0.1){
-            int xPos = x + static_cast<int>(floor(r * cos(rad)));
-            int yPos = y + static_cast<int>(floor(r * sin(rad)));
+            double xPos = static_cast<double>(x) + (r * cos(rad));
+            double yPos = static_cast<double>(y) + (r * sin(rad));
 
-            if(inRange(xPos, yPos))
-                cGrid[yPos][xPos] = 1;
+            if (d <= 180)
+                yPos = floor(yPos);
+            else    
+                yPos = ceil(yPos);
 
-            xPos = x + static_cast<int>(ceil(r * cos(rad)));
-            yPos = y + static_cast<int>(ceil(r * sin(rad)));
+            if (90 < d && d < 270)
+                xPos = ceil(xPos);
+            else
+                xPos = floor(xPos);
+
             
             if(inRange(xPos, yPos))
-                cGrid[yPos][xPos] = 1;   
+                cGrid[static_cast<int>(yPos)][static_cast<int>(xPos)] = 1;   
         }
         grids.push_back(cGrid);
     }
