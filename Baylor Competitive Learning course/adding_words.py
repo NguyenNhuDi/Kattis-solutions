@@ -36,7 +36,6 @@ if __name__ == '__main__':
                     add = False
                     print('-', end=' ')
                 elif word == '=':
-                    # print(command[out] if not unknown and out ielse 'unknown')
                     print('=', end = " ")
 
                     if out in nums and not unknown:
