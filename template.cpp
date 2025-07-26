@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+
+#define FOR(i,a,b) for(int i = (a); i < (b); i++)
+#define fe(x,item) for(auto & x : item)
+#define ll long long
+#define vi vector<int>
+#define vvi vector<vi>
+#define usi unordered_set<int>
+#define si set<int>
+#define MOD 0x3b9aca07
+#define pii pair<int,int>
+#define f first
+#define s second
+
+using namespace std;
