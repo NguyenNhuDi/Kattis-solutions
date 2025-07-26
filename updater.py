@@ -21,10 +21,12 @@ if __name__ == '__main__':
             if name not in tracker:
                 total += 1
 
-            if "cpp" in extension:
-                cpp_file += 1
-            else:
-                py_file += 1
+                if "cpp" in extension:
+                    cpp_file += 1
+                else:
+                    py_file += 1
+
+            tracker.add(name)
 
     with open(f'{curr_dir}/README.md', 'w') as f:
         f.write(f'Total problems solved: {total}  \n')
