@@ -4,7 +4,7 @@ from glob import glob
 
 if __name__ == '__main__':
 
-    curr_dir = os.path.dirname(__file__)
+    curr_dir = os.path.dirname(os.path.abspath(__file__))
 
     comp_dirs = [i for i in glob(f'{curr_dir}/*') if os.path.isdir(i)]
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     for dir in comp_dirs:
         curr_files = glob(f'{dir}/*')
         for f in curr_files:
-            name, extension = os.path.basename(f).split('.')    
+            name, extension = os.path.basename(f).split('.')
 
             if name not in tracker:
                 total += 1
