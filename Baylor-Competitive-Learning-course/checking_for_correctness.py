@@ -14,8 +14,6 @@ def exp(x, n, M = 10000):
 
 
 def main():
-    maxi = exp(2, 32) - 1
-
     for line in stdin:
         l, op, r = line.split('\n')[0].split()
         l, r = map(int, (l, r))
@@ -25,7 +23,7 @@ def main():
         elif op == '*':
             print((l * r) % 10000)
         else:
-            print(exp(l, r) % 10000)
+            print(exp(l, r))
 
 if __name__ == '__main__':
     main()
