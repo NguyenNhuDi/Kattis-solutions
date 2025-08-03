@@ -71,8 +71,5 @@ def main():
     dots.sort(key=lambda x : sorter[x[0]])
     solve(board, dots)
 
-        
-
-
 if __name__ == '__main__':
     main()

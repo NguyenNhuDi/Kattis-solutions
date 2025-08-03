@@ -12,7 +12,7 @@
 #define f first
 #define s second
 
-#define MAXI 46340
+#define MAXI 65536
 
 using namespace std;
 
@@ -33,21 +33,17 @@ std::vector<ll> sieve(){
     return out;
 }
 
-ll solve(const std::vector<ll> & primes, ll x){
-    std::unordered_map<ll, ll> tracker;
+bool is_prime(const std::vector<ll> & primes, const ll x){
+
+    if(std::binary_search(primes.begin(), primes.end(), x))
+        return true;
 
     fe(p, primes){
-        while(x % p == 0){
-            if(tracker.find(p) == tracker.end()) tracker[p] = 1;
-            else ++tracker[p];
-
-            x /= p;
-        }
+        if (x % p == 0)
+            return false;
     }
 
-    ll out = 1;
-    fe(x, tracker) out *= std::pow(x.s, x.f);
-    return out;
+    return true;
 }
 
 int main(){
@@ -58,8 +54,23 @@ int main(){
     std::vector<ll> primes = sieve();
 
     ll n;
-    while(std::cin >> n)
-        std::cout << n << " " << solve(primes, n) << std::endl;
-    
+    while(std::cin >> n){
+        if(n == 0)
+            break;
+
+        ll original = n;
+        bool prime = is_prime(primes,n);
+
+        n *= 2;
+        ++n;
+
+        while(!is_prime(primes, n)) n++;
+        
+        std::cout << n; 
+        if(!prime)
+            std::cout << " (" << original << " is not prime)";
+        std::cout << std::endl;
+    }
+
     return 0;
 }
