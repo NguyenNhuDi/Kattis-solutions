@@ -18,12 +18,12 @@ if __name__ == '__main__':
         for f in curr_files:
             name, extension = os.path.basename(f).split('.')
 
-            if name not in tracker:
+            if name not in tracker and (('cpp' in extension) or ('py' in extension)):
                 total += 1
 
                 if "cpp" in extension:
                     cpp_file += 1
-                else:
+                elif "py" in extension:
                     py_file += 1
 
             tracker.add(name)
