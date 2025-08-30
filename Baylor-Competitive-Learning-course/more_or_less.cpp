@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+
+#define FOR(i,a,b) for(int i = (a); i < (b); i++)
+#define fe(x,item) for(auto & x : item)
+#define ll long long
+#define vi vector<int>
+#define vvi vector<vi>
+#define usi unordered_set<int>
+#define si set<int>
+#define MOD 0x3b9aca07
+#define pii pair<int,int>
+#define f first
+#define s second
+
+using namespace std;
+
+int main(){
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int x, y;
+
+    do{
+        std::cin >> x >> y;
+
+        if(x != y){
+            std::cout << (x > y ? "More" : "Less") << std::endl;
+        }
+
+    }
+    while(x != y);
+
+    return 0;
+}
