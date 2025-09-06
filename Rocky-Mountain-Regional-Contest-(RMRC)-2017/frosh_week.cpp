@@ -18,7 +18,7 @@ int main(){
     std::vector<int> tasks(n), quite(m);
 
     FOR(i,0,n) std::cin >> tasks[i];
-    FOR(i,0,n) std::cin >> quite[i];
+    FOR(i,0,m) std::cin >> quite[i];
 
     std::sort(tasks.begin(), tasks.end());
     std::sort(quite.begin(), quite.end());
