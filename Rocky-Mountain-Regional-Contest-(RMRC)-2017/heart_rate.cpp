@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+#define FOR(i,a,b) for(int i = (a); i < (b); i++)
+#define fe(x,item) for(auto & x : item)
+#define MOD 0x3b9aca07
+#define f first
+#define s second
+
+using namespace std;
+
+int main(){
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int _; std::cin >> _;
+    while(_--){
+        double b, p; std::cin >> b >> p;
+        double bpm = 60 * b /p;
+
+
+        std::cout << 60 * ((b - 1) / p) << " " << bpm << " " << 60 * ((b + 1) / p) << std::endl;
+
+    }
+
+    return 0;
+}
