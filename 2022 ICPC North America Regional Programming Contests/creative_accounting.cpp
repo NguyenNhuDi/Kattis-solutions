@@ -20,55 +20,40 @@ int main(){
     std::vector<ll> inpoo(n);
     FOR(i, 0, n) std::cin >> inpoo[i];
 
-    std::unordered_map<ll, vi> dp;
-    
-    FOR(c_range, min_size, max_size + 1){
-        dp[c_range].assign(c_range, 0);
-        ll l = 0, r = 0;
-        ll c_sum = 0;
-        while(r < c_range){
-            c_sum += inpoo[r++];
-        }
+    vi p_sum(n);
+    std::inclusive_scan(inpoo.begin(), inpoo.end(), p_sum.begin());
 
-        if(c_sum > 0) 
-            dp[c_range][0]++;
-
-        bool first = true;
-        ll left_sum = 0;
-        while (r < n){
-            first = l < c_range - 1;
-            l++;
-            ll rem = l % c_range;
-            if(rem > 0 && first){
-                left_sum += inpoo[l - 1];
-                if(left_sum > 0)
-                    dp[c_range][rem]++;
-            }
-            c_sum -= inpoo[l - 1];
-            c_sum += inpoo[r++];
-
-            if(c_sum > 0)
-                dp[c_range][rem]++;
-        }
-
-        ll fr = n - 1;
-
-        ll r_sum = 0;
-        while(fr > l){
-            ll rem = fr % c_range;
-            r_sum += inpoo[fr--];
-            if(r_sum > 0)
-                dp[c_range][rem]++;
-        }
-    }
-
-    ll maxi = std::numeric_limits<ll>::min();
     ll mini = std::numeric_limits<ll>::max();
-    fe(x, dp){
-        fe(y, x.s){
-           mini = std::min(y, mini);
-           maxi = std::max(y, maxi);
+    ll maxi = std::numeric_limits<ll>::min();
+
+    FOR(c_range, min_size, max_size + 1){
+
+        FOR(s_pos, 0, c_range){
+        
+            ll profit = 0;
+            ll l = s_pos, r = s_pos + c_range - 1;
+            
+            if(l > 0)
+                if(p_sum[l - 1] > 0) profit++;
+
+            while(r < n){
+                ll sum = p_sum[r]; 
+
+                if(l > 0) sum -= p_sum[l - 1];
+                
+                if(sum > 0) profit++;
+
+                l += c_range; r += c_range;
+            }
+            
+            if(n - 1 >= l)
+            if(p_sum[n - 1] - p_sum[l - 1] > 0)
+            profit++;
+            
+            maxi = std::max(maxi, profit);
+            mini = std::min(mini, profit);
         }
+
     }
 
     std::cout << mini << " " << maxi << std::endl;
