@@ -1,3 +1,3 @@
-Total problems solved: 320  
-Total problems solved with Python: 120  
-Total problems solved with C++: 200  
+Total problems solved: 328  
+Total problems solved with Python: 125  
+Total problems solved with C++: 203  
