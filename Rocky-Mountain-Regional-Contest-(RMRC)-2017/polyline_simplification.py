@@ -48,9 +48,6 @@ def main():
         k -=1
         print(m)
         dead.add(m)
-        # for t in pq:
-        #     print(t.a, t.p)
-        # go left
         if l > 0:
             nl = l - 1
 
