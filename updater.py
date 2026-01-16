@@ -32,3 +32,5 @@ if __name__ == '__main__':
         f.write(f'Total problems solved: {total}  \n')
         f.write(f'Total problems solved with Python: {py_file}  \n')
         f.write(f'Total problems solved with C++: {cpp_file}  \n')
+
+#small change
